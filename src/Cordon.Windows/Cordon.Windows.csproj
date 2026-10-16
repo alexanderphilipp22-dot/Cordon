@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Cordon.Windows</RootNamespace>
+    <AssemblyName>Cordon.Windows</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cordon.Core\Cordon.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,45 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <!--
+    Offline-Build: In dieser Umgebung ist kein NuGet-Feed erreichbar.
+    Es werden ausschliesslich Framework-Referenzen (Microsoft.NETCore.App +
+    Microsoft.WindowsDesktop.App) verwendet, damit `dotnet build` ohne Restore
+    aus dem Netz funktioniert. Neue PackageReference-Eintraege wuerden den
+    Build hier brechen - bewusst keine hinzugefuegt.
+  -->
+  <PropertyGroup>
+    <RestorePackagesPath>$(MSBuildThisFileDirectory).nuget</RestorePackagesPath>
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+  </PropertyGroup>
+
+  <!--
+    `System.Security.Cryptography.ProtectedData` (DPAPI) liegt NICHT in
+    Microsoft.NETCore.App, sondern im Windows-Desktop-Framework. Ohne diese
+    Referenz kompiliert Cordon.Core nicht (AuditKeyStore). Kein NuGet-Paket -
+    bewusst Framework-Only fuer den Offline-Build.
+  -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <Optimize>true</Optimize>
+    <DebugType>embedded</DebugType>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+</Project>

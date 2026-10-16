@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Cordon.Launcher</RootNamespace>
+    <AssemblyName>Cordon.Launcher</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cordon.Core\Cordon.Core.csproj" />
+    <ProjectReference Include="..\Cordon.Windows\Cordon.Windows.csproj" />
+  </ItemGroup>
+</Project>

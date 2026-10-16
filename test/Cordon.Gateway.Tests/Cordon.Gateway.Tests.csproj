@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Cordon.Gateway.Tests</RootNamespace>
+    <AssemblyName>Cordon.Gateway.Tests</AssemblyName>
+    <Description>Abhaengigkeitsfreier Selbsttest fuer Vault, McpFilter und CodeInspector (kein xUnit/kein NuGet-Restore).</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Cordon.Core\Cordon.Core.csproj" />
+    <ProjectReference Include="..\..\src\Cordon.Gateway\Cordon.Gateway.csproj" />
+  </ItemGroup>
+</Project>

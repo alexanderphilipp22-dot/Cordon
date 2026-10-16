@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Cordon.AgentSdk</RootNamespace>
+    <AssemblyName>Cordon.AgentSdk</AssemblyName>
+    <Description>Client SDK: spricht ausschliesslich ueber die Cordon Named Pipe mit dem Gateway.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Cordon.Core\Cordon.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Cordon.Cli</RootNamespace>
+    <AssemblyName>cordon</AssemblyName>
+    <RuntimeIdentifier Condition="'$(Configuration)' == 'Release'">win-x64</RuntimeIdentifier>
+    <SelfContained Condition="'$(Configuration)' == 'Release'">false</SelfContained>
+    <PublishSingleFile Condition="'$(Configuration)' == 'Release'">false</PublishSingleFile>
+    <AssemblyTitle>Cordon Control</AssemblyTitle>
+    <Product>Cordon</Product>
+    <Description>Capability-based agent gateway for Windows</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cordon.Core\Cordon.Core.csproj" />
+    <ProjectReference Include="..\Cordon.Windows\Cordon.Windows.csproj" />
+    <ProjectReference Include="..\Cordon.Gateway\Cordon.Gateway.csproj" />
+    <ProjectReference Include="..\Cordon.Launcher\Cordon.Launcher.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Cordon.Tests</RootNamespace>
+    <AssemblyName>Cordon.Tests</AssemblyName>
+    <Description>Abhaengigkeitsfreier Selbsttest (kein xUnit/kein NuGet-Restore).</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Cordon.Core\Cordon.Core.csproj" />
+    <ProjectReference Include="..\..\src\Cordon.Windows\Cordon.Windows.csproj" />
+  </ItemGroup>
+</Project>

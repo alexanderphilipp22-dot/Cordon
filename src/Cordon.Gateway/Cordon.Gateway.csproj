@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--
+      Library, nicht Exe: das Gateway hat keine Main-Methode, es wird von der
+      CLI in-process gehostet (`cordon serve` -> new GatewayServer(...)) und der
+      Dienst wird als "<cordon.exe> serve" registriert. Mit OutputType=Exe
+      bricht der Build mit CS5001 ab.
+    -->
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <!--
+    Projektverweise sind zwingend: das Gateway nutzt Cordon.Core (inkl.
+    InternalsVisibleTo aus Cordon.Core.csproj) und Cordon.Windows.
+    Ohne diese Verweise brechen alle using-Direktiven mit CS0234/CS0246.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\Cordon.Core\Cordon.Core.csproj" />
+    <ProjectReference Include="..\Cordon.Windows\Cordon.Windows.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.5.1" />
+    <PackageReference Include="System.ServiceProcess.ServiceController" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

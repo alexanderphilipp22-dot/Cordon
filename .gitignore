@@ -1,0 +1,37 @@
+# --- .NET Build-Artefakte -------------------------------------------------
+bin/
+obj/
+out/
+artifacts/
+*.binlog
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- NuGet (lokaler Offline-Restore) -------------------------------------
+.nuget/
+packages/
+
+# --- IDE ----------------------------------------------------------------
+.vs/
+.idea/
+*.user
+.vscode/
+
+# --- Laufzeitdaten (nie einchecken) ---------------------------------------
+# Audit-Protokolle und Schlüssel liegen unter %ProgramData%\Cordon und werden
+# hier nur defensiv ignoriert, falls jemand sie ins Repo kopiert.
+audit/
+*.pfx
+*.pwd
+*.key
+
+# --- Node / Frontend (dashboard/) ----------------------------------------
+node_modules/
+dist/
+.vite/
+
+# --- OS / Editor ---------------------------------------------------------
+Thumbs.db
+.DS_Store
