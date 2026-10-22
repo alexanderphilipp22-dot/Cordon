@@ -1,19 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <RootNamespace>Cordon.Cli</RootNamespace>
     <AssemblyName>cordon</AssemblyName>
-    <RuntimeIdentifier Condition="'$(Configuration)' == 'Release'">win-x64</RuntimeIdentifier>
-    <SelfContained Condition="'$(Configuration)' == 'Release'">false</SelfContained>
-    <PublishSingleFile Condition="'$(Configuration)' == 'Release'">false</PublishSingleFile>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    
+    <!-- Metadaten -->
     <AssemblyTitle>Cordon Control</AssemblyTitle>
     <Product>Cordon</Product>
     <Description>Capability-based agent gateway for Windows</Description>
+
+    <!-- Native Single-File Konfiguration für Release -->
+    <RuntimeIdentifier Condition="'$(Configuration)' == 'Release'">win-x64</RuntimeIdentifier>
+    <SelfContained Condition="'$(Configuration)' == 'Release'">true</SelfContained>
+    <PublishSingleFile Condition="'$(Configuration)' == 'Release'">true</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
   </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Cordon.Core\Cordon.Core.csproj" />
     <ProjectReference Include="..\Cordon.Windows\Cordon.Windows.csproj" />
     <ProjectReference Include="..\Cordon.Gateway\Cordon.Gateway.csproj" />
     <ProjectReference Include="..\Cordon.Launcher\Cordon.Launcher.csproj" />
   </ItemGroup>
+
 </Project>
